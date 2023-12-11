@@ -73,8 +73,13 @@ function Content() {
         }
     };
 
-    const handleSelectChange = (item) => {
-        setSelectedValue(item.target.value);
+    const handleSelectChange = (event) => {
+        console.log(event.target.name)
+        console.log(event.target.value)
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
     };
 
     //tạo một nút khi bấm vào nó sẽ mở hộp thoại chọn ảnh từ thư mục
@@ -146,7 +151,7 @@ function Content() {
                 <div className="form-group">
                     <label htmlFor="selectData">Category:</label>
                     <select
-                        name="selectData"
+                        name="category"
                         className="form-control"
                         value={selectedValue}
                         onChange={handleSelectChange}
