@@ -101,7 +101,7 @@ function Content() {
                     <input
                         type="text"
                         className="form-control"
-                        id="title"
+                        name="title"
                         placeholder="Enter product title"
                         value={formData.title}
                         onChange={handleChange}
@@ -112,7 +112,7 @@ function Content() {
                     <input
                         type="number"
                         className="form-control"
-                        id="price"
+                        name="price"
                         placeholder="Enter product price"
                         value={formData.price}
                         onChange={handleChange}
@@ -122,7 +122,7 @@ function Content() {
                     <label htmlFor="description">Description:</label>
                     <textarea
                         className="form-control"
-                        id="description"
+                        name="description"
                         rows={3}
                         placeholder="Enter product description"
                         defaultValue={""}
@@ -135,18 +135,18 @@ function Content() {
                     <input
                         type="file"
                         className="form-control"
-                        id="fileInput"
+                        name="fileInput"
                         //placeholder="Enter product image URL"
                         style={{ display: "none" }}
                         onChange={handleFileChange}
-                        accept="image/*" // Chỉ chấp nhận các tệp ảnh
+                        accept="image/*" // Chỉ chấp nhận các tệp ảnh something change
                     />
                     <button onClick={handleButtonClick}>Choose Image</button>
                 </div>
                 <div className="form-group">
                     <label htmlFor="selectData">Category:</label>
                     <select
-                        id="selectData"
+                        name="selectData"
                         className="form-control"
                         value={selectedValue}
                         onChange={handleSelectChange}
