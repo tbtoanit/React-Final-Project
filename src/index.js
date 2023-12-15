@@ -7,15 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import NewProduct from './webpage/NewProduct';
 import Product from './webpage/Product';
 import Home from './webpage/Home';
+import Contact from './webpage/Contact';
+import About from './webpage/About';
+import Login from './webpage/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
       <Routes>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/newproduct" element={<NewProduct />} />
-        <Route path="/" element={<Home />} index={true} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} index={true} />
       </Routes>
     </Router>
   </React.StrictMode>
