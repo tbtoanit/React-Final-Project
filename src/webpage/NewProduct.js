@@ -24,6 +24,7 @@ function Content() {
     };
 
     const handleSubmit = (event) => {
+        console.log(formData)
         event.preventDefault();
         // Gọi API để thêm sản phẩm mới
         fetch("https://fakestoreapi.com/products", {
@@ -33,10 +34,13 @@ function Content() {
             },
             body: JSON.stringify(formData),
         })
-            .then((response) => response.json())
+            .then(
+                (response) => {
+                    response.json()
+                    alert("Thêm thành công")
+                }
+                )
             .then((data) => {
-                // Xử lý phản hồi từ API (nếu cần)
-                console.log("Product added:", data);
                 // Reset form sau khi thêm sản phẩm thành công
                 setFormData({
                     title: "",
@@ -54,7 +58,6 @@ function Content() {
 
     //Đẩy dữ liệu API vào combobox
     const [data, setData] = useState([]);
-    const [selectedValue, setSelectedValue] = useState("");
 
     useEffect(() => {
         // Gọi API khi component được tạo
@@ -88,13 +91,13 @@ function Content() {
         // Xử lý tệp đã chọn tại đây (ví dụ: upload tệp lên server, xem trước, ...)
 
         // In ra thông tin về tệp đã chọn (ví dụ)
-        console.log("File selected:", selectedFile);
-    };
-
-    const handleButtonClick = () => {
-        // Kích hoạt hộp thoại chọn tệp khi người dùng nhấn nút
-        const fileInput = document.getElementById("fileInput");
-        fileInput.click();
+        console.log("File selected:", selectedFile.name);
+        console.log(event.target.name)
+        setFormData({
+            ...formData,
+            [event.target.name]: selectedFile.name
+        });
+        console.log(formData)
     };
 
     return (
@@ -136,24 +139,23 @@ function Content() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="image">Image URL:</label>
+                    <label htmlFor="image">Image URL:{formData.image}</label>
                     <input
                         type="file"
                         className="form-control"
-                        name="fileInput"
+                        id="fileInput"
+                        name="image"
                         //placeholder="Enter product image URL"
-                        style={{ display: "none" }}
                         onChange={handleFileChange}
                         accept="image/*" // Chỉ chấp nhận các tệp ảnh something change
-                    />
-                    <button onClick={handleButtonClick}>Choose Image</button>
+                    /> 
                 </div>
                 <div className="form-group">
                     <label htmlFor="selectData">Category:</label>
                     <select
                         name="category"
                         className="form-control"
-                        value={selectedValue}
+                        value={formData.category}
                         onChange={handleSelectChange}
                     >
                         <option value="">Choose an option</option>
