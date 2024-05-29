@@ -9,6 +9,8 @@ function Content() {
   //develop something from toan tran
   //develop something from duy
 
+  //develop something from khanh
+
   return (
     <div>
       {/* Jumbotron */}
