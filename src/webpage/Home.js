@@ -5,12 +5,17 @@ import "./css/bootstrap.min.css";
 
 function Content() {
   //develop something from long
+
+  //develop something from toan tran
+  //develop something from duy
+
   return (
     <div>
       {/* Jumbotron */}
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
-          <h1 className="display-4">Welcome to Your Website</h1>
+          <h1 className="display-4">Welcome to Your Website </h1>
+
           <p className="lead">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             varius purus.
